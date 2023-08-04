@@ -1,0 +1,39 @@
+﻿@model LoginVM
+@{
+    ViewData["Title"] = "Login";
+    Layout = "_LoginLayout";
+    var returnUrl = ViewBag.ReturnUrl as string;
+}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-5">
+            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                <div class="card-body">
+                    <form method="post" asp-action="Login">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" asp-for="Email" />
+                            <label asp-for="Email"></label>
+                            <small><span asp-validation-for="Email" class="form-text text-danger"></span></small>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" asp-for="Password" />
+                            <label asp-for="Password"> </label>
+                            <small><span asp-validation-for="Password" class="form-text text-danger"></span></small>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" asp-for="RememberPassword" type="checkbox"  />
+                            <label class="form-check-label" asp-for="RememberPassword">Remember Password</label>
+                        </div>
+                        <input type="hidden" asp-for="ReturnUrl" value="@returnUrl" />
+                        <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                            <button class="btn btn-primary" type="submit">Login</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

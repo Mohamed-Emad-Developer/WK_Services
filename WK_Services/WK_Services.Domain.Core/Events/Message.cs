@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using WK_Services.Domain.Core.Bus;
 
 namespace WK_Services.Domain.Core.Events
 {
@@ -13,15 +12,6 @@ namespace WK_Services.Domain.Core.Events
     }
 
  
-
-    public abstract class MessageUserService : IRequest<IdentityResultViewModel>
-    {
-        public string MessageType { get; protected set; }
-
-        public MessageUserService()
-        {
-            MessageType = GetType().Name;
-        }
-    } 
+     
      
 }

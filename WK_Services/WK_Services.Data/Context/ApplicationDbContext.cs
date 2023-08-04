@@ -2,13 +2,14 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WK_Services.Domain.Models.User;
+using WK_Services.Domain.Models;
 
 namespace WK_Services.Data.Context
 {
     public abstract partial class MainDbContext : IdentityDbContext<
-       ApplicationUser, ApplicationRole, string,
-       IdentityUserClaim<string>, ApplicationUserRole, IdentityUserLogin<string>,
-       IdentityRoleClaim<string>, IdentityUserToken<string>>
+        ApplicationUser, ApplicationRole, string,
+        IdentityUserClaim<string>, ApplicationUserRole, IdentityUserLogin<string>,
+        IdentityRoleClaim<string>, IdentityUserToken<string>>
     {
         public MainDbContext()
         {
@@ -34,26 +35,28 @@ namespace WK_Services.Data.Context
 
             builder.Entity<ApplicationUser>(b =>
             {
-               
+
                 b.HasMany(e => e.UserRoles)
                .WithOne(e => e.User)
                  .HasForeignKey(uc => uc.UserId)
                  .IsRequired();
 
-                
             });
 
             builder.Entity<ApplicationRole>(b =>
             {
-              
+               
                 b.HasMany(e => e.UserRoles)
                 .WithOne(e => e.Role)
                 .HasForeignKey(ur => ur.RoleId)
                 .IsRequired();
             });
         }
-      
 
+        public DbSet<Service> Services { get; set; }
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
     }
 
     public class ApplicationDbContext : MainDbContext

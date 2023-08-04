@@ -1,0 +1,60 @@
+﻿@model ContactVM
+@{
+    ViewData["Title"] = "Edit";
+    ViewData["Main"] = "Contacts";
+    var clientId = ViewBag.ClientId  ;
+}
+<div class="container-fluid px-4">
+    <h1 class="mt-4">@ViewData["Main"]</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">@ViewData["Title"]</li>
+    </ol>
+
+    <form method="post" asp-action="Edit" asp-route-clientId="@clientId">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label asp-for="Name"></label>
+                <input class="form-control" asp-for="Name" placeholder="Name">
+                <small><span asp-validation-for="Name" class="form-text text-danger"></span></small>
+
+            </div>
+            <div class="col-md-6 mb-3">
+                <label asp-for="Mobile"> </label>
+                <input class="form-control" asp-for="Mobile" placeholder="Mobile">
+                <small><span asp-validation-for="Mobile" class="form-text text-danger"></span></small>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label asp-for="Email"></label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupPrepend2">@@</span>
+                    </div>
+                    <input class="form-control" asp-for="Email" placeholder="Email" aria-describedby="inputGroupPrepend2">
+                </div>
+                <small><span asp-validation-for="Email" class="form-text text-danger"></span></small>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label asp-for="UserName"></label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupPrepend2">@@</span>
+                    </div>
+                    <input class="form-control" asp-for="UserName" placeholder="UserName" aria-describedby="inputGroupPrepend2">
+                </div>
+                <small><span asp-validation-for="UserName" class="form-text text-danger"></span></small>
+            </div>
+        </div>
+       
+        <input type="hidden" asp-for="Id" value="@Model.Id"/>
+        <input type="hidden" asp-for="ClientId" value="@clientId"/>
+        <div class="form-group d-flex justify-content-start mt-3">
+            <button class="btn btn-primary" type="submit" style="margin-right:10px">Edit</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </div>
+
+
+    </form>
+
+</div>

@@ -1,0 +1,96 @@
+﻿@model OrderVM
+@{
+    ViewData["Title"] = "Create";
+    ViewData["Main"] = "Orders";
+    var servicesSelectList = ViewData["ServicesList"] as SelectList;
+}
+<div class="container-fluid px-4">
+    <h1 class="mt-4">@ViewData["Main"]</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">@ViewData["Title"]</li>
+    </ol>
+    <div class="row">
+        <form method="post" asp-action="Create" id="order_frm">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Type"></label>
+                <select class="form-control" asp-for="Type" asp-items="@Html.GetEnumSelectList<OrderType>()">
+                    <option value="">Select</option>
+                </select>
+                <small><span asp-validation-for="Type" class="form-text text-danger"></span></small>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ServiceId"></label>
+                <select class="form-control" asp-for="ServiceId" asp-items="servicesSelectList">
+                    <option value="">Select</option>
+                </select>
+                <small><span asp-validation-for="ServiceId" class="form-text text-danger"></span></small>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity"></label>
+                <input class="form-control" asp-for="Quantity">
+                <small><span asp-validation-for="Quantity" class="form-text text-danger"></span></small>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="RequestedDeliveryDate"></label>
+                <input class="form-control" asp-for="RequestedDeliveryDate" type="date" />
+                <small><span asp-validation-for="RequestedDeliveryDate" class="form-text text-danger"></span></small>
+            </div>
+
+            <div class="form-group d-flex justify-content-start mt-3">
+                <button type="submit" class="btn btn-primary" style="margin-right:10px" id="save_order">Save</button>
+                <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+@section Scripts{
+    <script>
+        $('#order_frm').submit(function (e) {
+            e.preventDefault();
+        })
+        $('#save_order').click(function () {
+            if ($('#order_frm').valid()) {
+                $('#save_order').prop("disabled", true);
+                let formData = $('#order_frm').serialize();
+                $.ajax({
+                    url: '@Url.Action("Create")',
+                    data: formData,
+                    method: 'POST',
+                    success: function (data) {
+                        if (data.succeeded) {
+                            Swal.fire(
+                                'Success',
+                                `Order number '${data.order}' saved succsessfully`,
+                                'success'
+                            )
+
+                        } else {
+
+                            Swal.fire(
+                                'Error',
+                                `An error occured`,
+                                'error'
+                            )
+                        }
+                        $('#save_order').prop("disabled", false);
+                    },
+                    error: function (data) {
+                        Swal.fire(
+                            'Error',
+                            `An error occured`,
+                            'error'
+                        )
+                        $('#save_order').prop("disabled", false);
+                    }
+                })
+            }
+
+        });
+    </script>
+}

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Service>
+@{
+    ViewData["Title"] = "Services";
+    ViewData["Main"] = "Services";
+
+}
+<div class="container-fluid px-4">
+    <h1 class="mt-4">@ViewData["Main"]</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">@ViewData["Title"]</li>
+    </ol>
+    <div class="row">
+        <div class="col-12">
+
+            <a asp-action="Create" class="btn btn-primary mb-4">Create Service</a>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Created At
+                        </th>
+                        <th>
+                            Updated At
+                        </th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @if (Model != null && Model.Count() > 0)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+
+                                <td>@item.Name</td>
+                                <td>@item.CreatedDateOnUtc.ToString("dd/MM/yyyy HH:mm tt")</td>
+                                <td>@item.UpdatedDateOnUtc.ToString("dd/MM/yyyy HH:mm tt")</td>
+                                <td><a asp-action="Edit" asp-route-id="@item.Id">Edit</a></td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Contacts";
+    ViewData["Main"] = "Clients";
+    var clientId = ViewBag.ClientId;
+}
+@section Styles{
+    <link href="~/lib/datatable/datatables.min.css" rel="stylesheet" />
+}
+
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4">@ViewData["Main"]</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">@ViewData["Title"]</li>
+    </ol>
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between">
+
+                <a asp-action="Create" asp-route-clientId="@clientId" class="btn btn-primary mb-4">Create Contact</a>
+                <a asp-action="Index" asp-controller="Clients" class="btn btn-secondary mb-4">Back to client</a>
+            </div>
+            <table class="table table-bordered table-responsive" id="my_dt"></table>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts{
+    <script src="~/lib/datatable/datatables.min.js"></script>
+    <script src="~/js/dt/contacts.js"></script>
+    <script>
+        $(document).ready(function () {
+            contactsTable('@Url.Action("LoadData")', @clientId);
+        })
+
+    </script>
+}

@@ -11,16 +11,6 @@ namespace WK_Services.Domain.Core.Commands
         }
     }
 
- 
-
-    public abstract class CommandUserService : MessageUserService
-    {
-        public DateTime Timestamp { get; protected set; }
-        public CommandUserService()
-        {
-            Timestamp = DateTime.Now;
-        }
-
-    } 
+  
      
 }

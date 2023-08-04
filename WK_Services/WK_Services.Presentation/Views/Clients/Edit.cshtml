@@ -1,0 +1,65 @@
+﻿@model ClientVM
+@{
+    ViewData["Title"] = "Edit";
+    ViewData["Main"] = "Clients";
+}
+<div class="container-fluid px-4">
+    <h1 class="mt-4">@ViewData["Main"]</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">@ViewData["Title"]</li>
+    </ol>
+
+    <form method="post" asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label asp-for="Name"></label>
+                <input class="form-control" asp-for="Name" placeholder="Name">
+                <small><span asp-validation-for="Name" class="form-text text-danger"></span></small>
+
+            </div>
+            <div class="col-md-6 mb-3">
+                <label asp-for="Phone"> </label>
+                <input class="form-control" asp-for="Phone" placeholder="phone">
+                <small><span asp-validation-for="Phone" class="form-text text-danger"></span></small>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label asp-for="Email"></label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupPrepend2">@@</span>
+                    </div>
+                    <input class="form-control" asp-for="Email" placeholder="Email" aria-describedby="inputGroupPrepend2">
+                </div>
+                <small><span asp-validation-for="Email" class="form-text text-danger"></span></small>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label asp-for="City"></label>
+                <input class="form-control" asp-for="City">
+                <small><span asp-validation-for="City" placeholder="City" class="form-text text-danger"></span></small>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label asp-for="Country"></label>
+                <input class="form-control" asp-for="Country" placeholder="Country">
+                <small><span asp-validation-for="Country" class="form-text text-danger"></span></small>
+            </div>
+            <div class="col-md-12">
+                <label asp-for="ShipmentAddress"></label>
+                <textarea asp-for="ShipmentAddress" class="form-control"></textarea>
+                <small><span asp-validation-for="ShipmentAddress" class="form-text text-danger"></span></small>
+            </div>
+
+        </div>
+        <input type="hidden" asp-for="Id" value="@Model.Id"/>
+        <div class="form-group d-flex justify-content-start mt-3">
+            <button class="btn btn-primary" type="submit" style="margin-right:10px">Edit</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </div>
+
+
+    </form>
+
+</div>

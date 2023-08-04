@@ -13,21 +13,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ioc", "Ioc", "{67D672FE-AB7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{9373A46E-E2C3-42C1-A169-4E5D19017038}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WK_Services.Application", "WK_Services.Application\WK_Services.Application.csproj", "{C610BF8E-79E5-442D-8086-9B771187D02C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WK_Services.Application", "WK_Services.Application\WK_Services.Application.csproj", "{C610BF8E-79E5-442D-8086-9B771187D02C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WK_Services.Data", "WK_Services.Data\WK_Services.Data.csproj", "{B2F8CF76-822F-4CCE-B2CB-DD4227209DFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WK_Services.Data", "WK_Services.Data\WK_Services.Data.csproj", "{B2F8CF76-822F-4CCE-B2CB-DD4227209DFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WK_Services.Domain", "WK_Services.Domain\WK_Services.Domain.csproj", "{73290F9B-8FBD-4CA4-BC90-5604A8B82A7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WK_Services.Domain", "WK_Services.Domain\WK_Services.Domain.csproj", "{73290F9B-8FBD-4CA4-BC90-5604A8B82A7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WK_Services.Ioc", "WK_Services.Ioc\WK_Services.Ioc.csproj", "{B8329096-B72C-4F0D-B978-8437EBD20E92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WK_Services.Ioc", "WK_Services.Ioc\WK_Services.Ioc.csproj", "{B8329096-B72C-4F0D-B978-8437EBD20E92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WK_Services.Presentation", "WK_Services.Presentation\WK_Services.Presentation.csproj", "{20AB4BF3-2834-4FD7-9FA5-7D21676A2320}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WK_Services.Presentation", "WK_Services.Presentation\WK_Services.Presentation.csproj", "{20AB4BF3-2834-4FD7-9FA5-7D21676A2320}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bus", "Bus", "{F6A83A41-DE1A-4232-8CB6-9BDA0D139285}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WK_Services.Bus", "WK_Services.Bus\WK_Services.Bus.csproj", "{EDFA02F3-8214-4D69-93A6-CE3231ED9D62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WK_Services.Bus", "WK_Services.Bus\WK_Services.Bus.csproj", "{EDFA02F3-8214-4D69-93A6-CE3231ED9D62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WK_Services.Domain.Core", "WK_Services.Domain.Core\WK_Services.Domain.Core.csproj", "{410A6D2F-8D60-4B86-9D92-067EA824E77B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WK_Services.Domain.Core", "WK_Services.Domain.Core\WK_Services.Domain.Core.csproj", "{410A6D2F-8D60-4B86-9D92-067EA824E77B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utility", "Utility", "{BAC2F133-7ABD-4E3F-918A-BBA9298E228E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WK_Services.Utility", "WK_Services.Utility\WK_Services.Utility.csproj", "{5A4FF0F5-0227-400B-BCCC-11547DFE1CA1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +67,10 @@ Global
 		{410A6D2F-8D60-4B86-9D92-067EA824E77B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{410A6D2F-8D60-4B86-9D92-067EA824E77B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{410A6D2F-8D60-4B86-9D92-067EA824E77B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A4FF0F5-0227-400B-BCCC-11547DFE1CA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A4FF0F5-0227-400B-BCCC-11547DFE1CA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A4FF0F5-0227-400B-BCCC-11547DFE1CA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A4FF0F5-0227-400B-BCCC-11547DFE1CA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,6 +83,7 @@ Global
 		{20AB4BF3-2834-4FD7-9FA5-7D21676A2320} = {DC0F1EDB-7671-4243-BFF0-6978E49CD0DF}
 		{EDFA02F3-8214-4D69-93A6-CE3231ED9D62} = {F6A83A41-DE1A-4232-8CB6-9BDA0D139285}
 		{410A6D2F-8D60-4B86-9D92-067EA824E77B} = {F78AF1EC-DCB9-4195-8845-6E63A1933DCE}
+		{5A4FF0F5-0227-400B-BCCC-11547DFE1CA1} = {BAC2F133-7ABD-4E3F-918A-BBA9298E228E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {53094BF0-7514-4F15-A996-914B39381856}

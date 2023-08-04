@@ -1,0 +1,30 @@
+﻿@model OrderFilter
+@{
+    var servicesSelectList = ViewData["ServicesList"] as SelectList;
+}
+<form id="order_filter">
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label asp-for="ServiceId"></label>
+            <select class="form-control" asp-for="ServiceId" id="serviceId" asp-items="servicesSelectList">
+                <option value="">Select</option>
+            </select>
+
+
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <label asp-for="Type"></label>
+            <select class="form-control" asp-for="Type" id="orderType" asp-items="Html.GetEnumSelectList<OrderType>()">
+                <option value="">Select</option>
+            </select>
+
+
+        </div>
+        <div class="col-md-3 mb-3">
+
+            <button class="btn btn-primary mt-4" type="submit" id="filter_btn">Filter</button>
+        </div>
+    </div>
+</form>

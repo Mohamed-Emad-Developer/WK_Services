@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Orders";
+    ViewData["Main"] = "Orders";
+    bool isAdmin = User.IsInRole(Roles.Admin);
+}
+@section Styles{
+    <link href="~/lib/datatable/datatables.min.css" rel="stylesheet" />
+}
+<div class="container-fluid px-4">
+    <h1 class="mt-4">@ViewData["Main"]</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">@ViewData["Title"]</li>
+    </ol>
+    <partial name="_OrderFilter" model="new OrderFilter()" />
+
+    <div class="row">
+        <div class="col-12">
+            @if (!isAdmin)
+            {
+                <a asp-action="Create" class="btn btn-primary mb-4">Create Service</a>
+            }
+
+            <table class="table table-bordered table-responsive" id="my_dt"></table>
+
+        </div>
+    </div>
+
+</div>
+
+@section Scripts{
+    <script src="~/lib/datatable/datatables.min.js"></script>
+    <script src="~/js/dt/orders.js"></script>
+    <script>
+        $(document).ready(function () {
+        @if (isAdmin)
+        {
+            <text>
+                    allOrdersTable('@Url.Action("LoadAllOrders")');
+
+            </text>
+        }
+        else
+        {
+            <text>
+
+                    clientOrdersTable('@Url.Action("LoadClientOrders")');
+            </text>
+        }
+                                })
+
+
+        $('#order_filter').submit(function (e) {
+            e.preventDefault();
+        })
+
+        $('#filter_btn').click(function () {
+            
+               var formData = $('#order_filter').serialize();
+        @if (isAdmin)
+        {
+            <text>
+                        allOrdersTable('/Orders/LoadAllOrders?' + formData);
+
+            </text>
+        }
+        else
+        {
+            <text>
+
+                        clientOrdersTable('/Orders/LoadClientOrders?' + formData);
+            </text>
+        }
+            
+        })
+    </script>
+}

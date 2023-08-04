@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>@ViewData["Title"] - SB Admin</title>
+    <title>@ViewData["Title"] - WK Services</title>
     @*<link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />*@
     <link href="~/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="~/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    @RenderSection("Styles", required: false)
 </head>
 <body class="sb-nav-fixed">
     <partial name="_Navbar" />
-   
+
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             <partial name="_SideBar" />
@@ -26,15 +28,17 @@
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
                         <div class="text-muted">Copyright &copy; WK Services 2023</div>
-                         
+
                     </div>
                 </div>
             </footer>
         </div>
     </div>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/scripts.js"></script>
-   @* <script src="~/assets/demo/chart-area-demo.js"></script>
+    <script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
+    @* <script src="~/assets/demo/chart-area-demo.js"></script>
     <script src="~/assets/demo/chart-bar-demo.js"></script>
     <script src="~/js/datatables-simple-demo.js"></script>*@
     @await Html.PartialAsync("_ValidationScriptsPartial")

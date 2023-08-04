@@ -19,9 +19,6 @@ namespace WK_Services.Bus.Bus
         }
  
 
-        public Task<IdentityResultViewModel> SendUserCommand<T>(T command) where T : CommandUserService
-        {
-            return _mediator.Send(command);
-        }
+         
     }
 }

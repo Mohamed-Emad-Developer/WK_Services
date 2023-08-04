@@ -11,10 +11,16 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" asp-action="Index" asp-controller="Home">Settings</a></li>
-                    <li><a class="dropdown-item" asp-action="Index" asp-controller="Home">Activity Log</a></li>
+                    <li><a class="dropdown-item" asp-action="Index" asp-controller="Home">@User.Identity.Name</a></li>
+
                     <li><hr class="dropdown-divider" /></li>
-                    <li><a class="dropdown-item" asp-action="Index" asp-controller="Home">Logout</a></li>
+                    <li>
+                        <form asp-action="Logout" asp-controller="Account" method="post">
+
+                            <button class="dropdown-item" type="submit">Logout</button>
+                        </form>
+                    </li>
+
                 </ul>
             </li>
         </ul>
